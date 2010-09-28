@@ -34,7 +34,7 @@ THE SOFTWARE.
   <artifactId>BlameSubversion</artifactId>
   <packaging>hpi</packaging>
   <name>Hudson Blame Subversion Plug-in</name>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.1</version>
   <licenses>
     <license>
       <name>MIT license</name>
@@ -59,4 +59,10 @@ THE SOFTWARE.
   </developers>
   
   <url>http://wiki.hudson-ci.org/display/HUDSON/BlameSubversion</url>
+
+  <scm>
+    <connection>scm:svn:https://guest@svn.dev.java.net/svn/hudson/tags/label</connection>
+    <developerConnection>scm:svn:https://svn.dev.java.net/svn/hudson/tags/label</developerConnection>
+    <url>https://hudson.dev.java.net/source/browse/hudson/tags/label</url>
+  </scm>
 </project>
