@@ -34,7 +34,7 @@ THE SOFTWARE.
   <artifactId>BlameSubversion</artifactId>
   <packaging>hpi</packaging>
   <name>Hudson Blame Subversion Plug-in</name>
-  <version>1.3-SNAPSHOT</version>
+  <version>1.1</version>
   <description>This plug-in provides utilities for getting svn info from upstream job to downstream job</description>
   <url>http://wiki.hudson-ci.org/display/HUDSON/BlameSubversion</url>
   
@@ -61,11 +61,11 @@ THE SOFTWARE.
     </developer>
   </developers>
   
- 
+
 
   <scm>
-    <connection>scm:svn:https://guest@svn.dev.java.net/svn/hudson/tags/1.1</connection>
-    <developerConnection>scm:svn:https://svn.dev.java.net/svn/hudson/tags/1.1</developerConnection>
-    <url>https://hudson.dev.java.net/source/browse/hudson/tags/1.1</url>
+    <connection>scm:svn:https://guest@svn.dev.java.net/svn/hudson/tags/BlameSubversion-1.1</connection>
+    <developerConnection>scm:svn:https://svn.dev.java.net/svn/hudson/tags/BlameSubversion-1.1</developerConnection>
+    <url>https://hudson.dev.java.net/source/browse/hudson/tags/BlameSubversion-1.1</url>
   </scm>
 </project>
