@@ -23,7 +23,7 @@ THE SOFTWARE.
 -->
 
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
-    <f:entry title="Always Collect SVN info from upstream job"  field="alwaysCollectSVNInfo">
+    <f:entry title="Always Collect SVN info from upstream job"  field="alwaysCollectSVNInfo" help="/plugin/BlameSubversion/help.html">
       <f:checkbox default="true"/>
     </f:entry>
 </j:jelly>
