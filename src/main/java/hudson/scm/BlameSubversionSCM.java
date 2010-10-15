@@ -665,6 +665,8 @@ public class BlameSubversionSCM extends SCM implements Serializable {
 
 		// 1 get the lastest build of upstream project who triger this build
 		AbstractBuild upStreamLastTriggerBuild = getTrigerBuild(upstreamProjects);
+		
+		
 
 		if (upStreamLastTriggerBuild != null) {
 			// 2 get the ChanangeLog from the lastest build, and print the Changelog
@@ -685,8 +687,8 @@ public class BlameSubversionSCM extends SCM implements Serializable {
 			}
 
 			// 3 save the ChanangeLog from the lastest build to this ChangeLog
-			copyChangeLogFromTriggerJob(build,
-					upStreamLastTriggerBuild);
+			copyChangeLogFromTriggerJob(build,upStreamLastTriggerBuild);
+			copyRevisionFromTriggerJob(build,upStreamLastTriggerBuild);
 			listener.getLogger().println(
 					"end copy the changelog from the project "
 							+ upStreamLastTriggerBuild.getProject().getName());
@@ -696,7 +698,7 @@ public class BlameSubversionSCM extends SCM implements Serializable {
 			MatrixConfiguration configuration = (MatrixConfiguration)build.getProject();
 			//no need svn log, because it is printed before
 			copyChangeLogFromTriggerJob(build,configuration.getParent().getLastBuild());
-			
+			copyRevisionFromTriggerJob(build,configuration.getParent().getLastBuild());
 		}
 
 		return true;
@@ -748,6 +750,35 @@ public class BlameSubversionSCM extends SCM implements Serializable {
 			return;
 		}
 	}
+	private void copyRevisionFromTriggerJob(AbstractBuild build,
+			AbstractBuild triggerBuild) {
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(
+					triggerBuild.getRootDir() + "/" + "revision.txt"));
+
+			List<String> buffer = new ArrayList<String>();
+
+			String s;
+			while ((s = reader.readLine()) != null) {
+				buffer.add(s);
+			}
+			reader.close();
+
+			writeChgLog(buffer, build.getRootDir() + "/" + "revision.txt");
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+			return;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		}
+		
+	}
+	
 
 	private void writeChgLog(List<String> buffer, String filename)
 			throws IOException {
