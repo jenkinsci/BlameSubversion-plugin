@@ -760,7 +760,7 @@ public class BlameSubversionSCM extends SCM implements Serializable {
 
 			String s;
 			while ((s = reader.readLine()) != null) {
-				buffer.add(s);
+				buffer.add(s+"\n");
 			}
 			reader.close();
 
