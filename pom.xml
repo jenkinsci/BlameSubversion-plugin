@@ -35,7 +35,7 @@ THE SOFTWARE.
   <packaging>hpi</packaging>
   <name>Hudson Blame Subversion Plug-in</name>
   <version>1.122-SNAPSHOT</version>
-  <description>This plug-in provides utilities for getting svn info from upstream job to downstream job</description>
+  <description>This plug-in provides utilities for getting svn info and build number synchronize from upstream job to downstream job</description>
   <url>http://wiki.hudson-ci.org/display/HUDSON/BlameSubversion</url>
   
   <licenses>
