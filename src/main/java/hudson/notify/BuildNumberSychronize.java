@@ -50,10 +50,10 @@ public abstract class BuildNumberSychronize {
 		List<AbstractProject> downStreamProjects = getDownStreamProjects();
 		for (AbstractProject downstreamProject : downStreamProjects) {
 			downstreamProjectClear(nextUpStreamBuildNumber,downstreamProject);
-			downstreamProject.updateNextBuildNumber(nextUpStreamBuildNumber);
 			// reset the build number of downstream, may be problem in high version hudson
 			downstreamProject.onCopiedFrom(null);
 			downstreamProject.save();
+			downstreamProject.updateNextBuildNumber(nextUpStreamBuildNumber);
 		}
 	}
     
