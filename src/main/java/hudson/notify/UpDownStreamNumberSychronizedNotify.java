@@ -99,14 +99,6 @@ public class UpDownStreamNumberSychronizedNotify extends Notifier {
 	            return "UpDownStreamNumberSychronizedNotify";
 	        }
 	        
-//	        @Override
-//			public boolean configure(StaplerRequest req, JSONObject formData)
-//					throws FormException {
-//				req.bindJSON(this, formData);
-//				save();
-//
-//				return super.configure(req, formData);
-//			}
 
 	        public boolean isApplicable(Class<? extends AbstractProject> jobType) {
 	            return true;

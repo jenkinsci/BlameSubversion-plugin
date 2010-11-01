@@ -44,8 +44,6 @@ public class TenTimesBuildNumberSychronize extends BuildNumberSychronize {
 						run.delete();
 					}
 			    }
-			// reset the build number of downstream, may be problem in high version hudson
-				downstreamProject.onCopiedFrom(null);
 		    }
 		} catch (Exception e) {
 		}
