@@ -1355,7 +1355,7 @@ public class BlameSubversionSCM extends SCM implements Serializable {
 			if (e.isRevisionFixed())
 				wsRev.remove(e.url);
 
-		return new SVNRevisionState(wsRev);
+		return new BlameSVNRevisionState(wsRev);
 	}
 
 	public ChangeLogParser createChangeLogParser() {

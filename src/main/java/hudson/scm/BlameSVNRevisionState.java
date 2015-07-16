@@ -10,7 +10,7 @@ import java.util.Map.Entry;
  * 
  * Modify: changed by tang
  */
-final class SVNRevisionState extends SCMRevisionState implements Serializable {
+final class BlameSVNRevisionState extends SCMRevisionState implements Serializable {
     /**
      * All the remote locations that we checked out. This includes those that are specified
      * explicitly via {@link BlameSubversionSCM#getLocations()} as well as those that
@@ -19,19 +19,19 @@ final class SVNRevisionState extends SCMRevisionState implements Serializable {
      */
     final Map<String,Long> revisions;
 
-    SVNRevisionState(Map<String, Long> revisions) {
+    BlameSVNRevisionState(Map<String, Long> revisions) {
         this.revisions = revisions;
     }
 
 //    public PartialOrder compareTo(SCMRevisionState rhs) {
-//        SVNRevisionState that = (SVNRevisionState)rhs;
+//        BlameSVNRevisionState that = (BlameSVNRevisionState)rhs;
 //        return PartialOrder.from(that.hasNew(this), this.hasNew(that));
 //    }
 //
 //    /**
 //     * Does this object has something newer than the given object?
 //     */
-//    private boolean hasNew(SVNRevisionState that) {
+//    private boolean hasNew(BlameSVNRevisionState that) {
 //        for (Entry<String,Long> e : revisions.entrySet()) {
 //            Long rhs = that.revisions.get(e.getKey());
 //            if (rhs==null || e.getValue().compareTo(rhs)>0)
