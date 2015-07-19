@@ -25,13 +25,7 @@
 package hudson.scm;
 
 import hudson.Extension;
-import hudson.model.AbstractBuild;
-import hudson.model.Action;
-import hudson.model.Describable;
-import hudson.model.Descriptor;
-import hudson.model.Hudson;
-import hudson.model.TaskListener;
-import hudson.model.TaskThread;
+import hudson.model.*;
 import hudson.scm.subversion.Messages;
 import hudson.scm.BlameSubversionSCM.SvnInfo;
 import hudson.util.CopyOnWriteMap;
@@ -79,14 +73,18 @@ public class BlameSubversionTagAction extends AbstractScmTagAction implements De
      */
     private final Map<SvnInfo,List<String>> tags = new CopyOnWriteMap.Tree<SvnInfo, List<String>>();
 
+    @Deprecated
     /*package*/ BlameSubversionTagAction(AbstractBuild build,Collection<SvnInfo> svnInfos) {
+        this((Run) build, svnInfos);
+    }
+
+    /*package*/ BlameSubversionTagAction(Run<?,?> build,Collection<SvnInfo> svnInfos) {
         super(build);
         Map<SvnInfo,List<String>> m = new HashMap<SvnInfo,List<String>>();
         for (SvnInfo si : svnInfos)
             m.put(si,new ArrayList<String>());
         tags.putAll(m);
     }
-
     /**
      * Was any tag created by the user already?
      */
