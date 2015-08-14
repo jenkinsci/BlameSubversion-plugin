@@ -15,11 +15,15 @@ import javax.net.ssl.TrustManager;
  * 
  * @author tang,Kohsuke Kawaguchi
  */
-public class FilterSVNAuthenticationManager implements ISVNAuthenticationManager {
+public class FilterSVNAuthenticationManager implements hudson.scm.ISVNAuthenticationManager {
     protected ISVNAuthenticationManager core;
 
     public FilterSVNAuthenticationManager(ISVNAuthenticationManager core) {
         this.core = core;
+    }
+
+    public FilterSVNAuthenticationManager(org.tmatesoft.svn.core.auth.ISVNAuthenticationManager core) {
+        this.core = (ISVNAuthenticationManager) core;
     }
 
     public void setAuthenticationProvider(ISVNAuthenticationProvider provider) {
