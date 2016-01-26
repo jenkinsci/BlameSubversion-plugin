@@ -25,11 +25,11 @@
 package hudson.scm;
 
 import hudson.Extension;
-import hudson.model.AbstractBuild;
 import hudson.model.Action;
 import hudson.model.Describable;
 import hudson.model.Descriptor;
 import hudson.model.Hudson;
+import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.model.TaskThread;
 import hudson.scm.subversion.Messages;
@@ -79,7 +79,7 @@ public class BlameSubversionTagAction extends AbstractScmTagAction implements De
      */
     private final Map<SvnInfo,List<String>> tags = new CopyOnWriteMap.Tree<SvnInfo, List<String>>();
 
-    /*package*/ BlameSubversionTagAction(AbstractBuild build,Collection<SvnInfo> svnInfos) {
+    /*package*/ BlameSubversionTagAction(Run<?, ?> build,Collection<SvnInfo> svnInfos) {
         super(build);
         Map<SvnInfo,List<String>> m = new HashMap<SvnInfo,List<String>>();
         for (SvnInfo si : svnInfos)
