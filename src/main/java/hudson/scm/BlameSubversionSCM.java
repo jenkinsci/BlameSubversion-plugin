@@ -1566,7 +1566,7 @@ public class BlameSubversionSCM extends SCM implements Serializable {
 				if (kind.equals(ISVNAuthenticationManager.SSL))
 					try {
 						return new SVNSSLAuthentication(Base64
-								.decode(certificate.toString().toCharArray()),
+								.decode(certificate.getPlainText().toCharArray()),
 								Scrambler.descramble(password), false);
 					} catch (IOException e) {
 						throw new Error(e); // can't happen
