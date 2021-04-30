@@ -26,7 +26,6 @@ package hudson.scm;
 import hudson.model.AbstractBuild;
 import hudson.scm.BlameSubversionChangeLogSet.LogEntry;
 import hudson.scm.BlameSubversionChangeLogSet.Path;
-import hudson.util.Digester2;
 import hudson.util.IOException2;
 import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
@@ -34,8 +33,6 @@ import org.xml.sax.SAXException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * {@link ChangeLogParser} for Subversion.
@@ -48,7 +45,7 @@ public class BlameSubversionChangeLogParser extends ChangeLogParser {
     public BlameSubversionChangeLogSet parse(AbstractBuild build, File changelogFile) throws IOException, SAXException {
         // http://svn.collab.net/repos/svn/trunk/subversion/svn/schema/
 
-        Digester digester = new Digester2();
+        Digester digester = new Digester();
         ArrayList<LogEntry> r = new ArrayList<LogEntry>();
         digester.push(r);
 
